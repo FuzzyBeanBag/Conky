@@ -1,0 +1,82 @@
+-- vim: ts=4 sw=4 noet ai cindent syntax=lua
+
+conky.config = {
+    alignment = 'top_right',
+    background = false,
+    border_width = 0,
+    cpu_avg_samples = 1,
+    default_color = 'white',
+    default_outline_color = 'white',
+    default_shade_color = 'white',
+    draw_borders = false,
+    draw_graph_borders = false,
+    default_graph_width=100,
+    default_graph_height=15,
+    draw_outline = false,
+    draw_shades = false,
+    use_xft = true,
+    font = 'DejaVu Sans Mono:size=10',
+    gap_x = 100,
+    gap_y = 10,
+    minimum_height = 5,
+    minimum_width = 5,
+    net_avg_samples = 1,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_type = 'desktop',
+    own_window_transparent = 0,
+    own_window_argb_value = 0,
+    own_window_argb_visual = true,
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = false,
+    use_spacer = 'none',
+    show_graph_scale = false,
+    show_graph_range = false,
+    double_buffer = true
+}
+
+conky.text = [[
+
+${color #0ecc40}$alignc $nodename - $sysname $kernel
+$hr
+# RAM INFORMATION
+${color #FFFFFF} ${alignc} RAM Usage
+ 
+${color #0ecc40} Current Uage:     ${color #FFFFFF}$alignc$mem
+${color #0ecc40} Total Avail Ram:  ${color #FFFFFF}$alignc$memmax
+${color #0ecc40} Total Ram Usage:  ${color #FFFFFF}$alignc$memperc% $alignr${membar 10, 80}
+
+${color #FFFFFF} ${alignc} CPU Information
+
+#Faded CPU Bar/ Percent
+${color #0ecc40} Uptime:$color $uptime
+${color #0ecc40} Frequency (in MHz):$color $freq
+${color #0ecc40} Frequency (in GHz):$color $freq_g
+${color #0ecc40} CPU Usage: $alignc${color #FFFFFF} ${cpu}% $alignr${cpugraph FFFFFF 0ecc40} ${offset 5}
+
+#Networking by value and Graph
+${color #FFFFFF} ${alignc} Networking 
+
+${color #0ecc40} Download: ${color #FFFFFF} $alignc${downspeed wlp3s0} $alignr ${color black}${offset 10}${downspeedgraph wlp3s0 15,100 FFFFFF 0ecc40} ${offset 5} 
+${color #0ecc40} Upload:   ${color #FFFFFF} $alignc${upspeed wlp3s0} $alignr ${color black}${offset 10}${upspeedgraph wlp3s0 15,100 FFFFFF 0ecc40} ${offset 5}.
+#Up:$color ${upspeed eth0} ${color grey} - Down:$color ${downspeed eth0}
+$hr
+
+
+
+$hr
+$alignc${color grey}Processes:$color $processes  ${color grey}Running:$color $running_processes
+
+${color #FFFFFF} Name              PID   CPU%   MEM%
+${color #0ecc40} ${top name 1} ${color #FFFFFF}${top pid 1} ${top cpu 1} ${top mem 1}
+${color #0ecc40} ${top name 2} ${color #FFFFFF}${top pid 2} ${top cpu 2} ${top mem 2}
+${color #0ecc40} ${top name 3} ${color #FFFFFF}${top pid 3} ${top cpu 3} ${top mem 3}
+${color #0ecc40} ${top name 4} ${color #FFFFFF}${top pid 4} ${top cpu 4} ${top mem 4}
+]]
+
+
